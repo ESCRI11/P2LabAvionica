@@ -612,5 +612,23 @@ $T_{amb}$
  Para este programa se deben usar las funciones pinMode y digitalWrite.
 \end_layout
 
+\begin_layout Standard
+
+\lang spanish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{sketch_apr27a.ino}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

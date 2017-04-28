@@ -159,8 +159,8 @@ $T_{max}$
 \begin_inset Formula 
 \[
 \begin{cases}
-T_{amb}=\\
-T_{max}=
+T_{amb}= & 23\,^{o}C\\
+T_{max}= & 30\,^{o}C
 \end{cases}
 \]
 
@@ -174,6 +174,7 @@ Montar correctamente el acondicionador en la protoboard
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Box Frameless
 position "t"
 hor_pos "c"
@@ -188,6 +189,12 @@ height_special "totalheight"
 status collapsed
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename Sense_arduino_bb.png
+	width 15cm
+
+\end_inset
+
 
 \end_layout
 
@@ -222,6 +229,23 @@ $T_{max}$
 ?
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Salida=4V
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hay que destacar que en el divisor de tensión se conseguían solamente 2.1V,
+ suponemos que debido a la tolerancia de las resistencias, por dicho motivo
+ no se ha alcanzado un valor superior en la salida.
+\end_layout
+
 \begin_layout Section
 Adquisición de datos con arduino
 \end_layout
@@ -237,6 +261,7 @@ Montar correctamente en la protoboard el conjunto sensor-acondicionador
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Box Frameless
 position "t"
 hor_pos "c"
@@ -251,6 +276,12 @@ height_special "totalheight"
 status collapsed
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename Amb_arduino_bb.png
+	width 15cm
+
+\end_inset
+
 
 \end_layout
 
@@ -425,8 +456,8 @@ De esta forma se ha obtenido el valor que nos piden en este apartado.
 \begin_inset Formula 
 \[
 \begin{cases}
-analogRead\,a\,T_{amb}=\\
-analogRead\,a\,T_{max}=
+analogRead\,a\,T_{amb}= & 430\\
+analogRead\,a\,T_{max}= & 800
 \end{cases}
 \]
 
@@ -452,8 +483,8 @@ El anterior código mostrado ya tenía la implementación que nos piden en
 \begin_inset Formula 
 \[
 \begin{cases}
-T_{amb}=\\
-T_{max}=
+T_{amb}= & 22.6\,^{o}C\\
+T_{max}= & 27.48\,^{o}C
 \end{cases}
 \]
 
@@ -623,6 +654,116 @@ status open
 
 \backslash
 lstinputlisting{sketch_apr27a.ino}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Para realizar este apartado se ha procedido igual que en los anteriores
+ para calcular la temperatura detecada por el sensor.
+ Para el accionado del control del LED se ha usado una combinación de 
+\series bold
+if
+\series default
+, 
+\series bold
+else if
+\series default
+ y 
+\series bold
+else
+\series default
+, se ha hecho que a partir de cierta temperatura se encienda el led, que
+ por debajo de cierta temperatura se encienda el led, y que cuando esta
+ en el medio se apague.
+ Para calibrar dicha función se han usado los valores de 23.5 i 27 grados
+ centigrados de acuerdo con la temperatura existente al laboratorio en el
+ momento de la realización de la práctica.
+\end_layout
+
+\begin_layout Section
+
+\lang spanish
+Ampliación
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Para la ampliación de la práctica se propone el uso de un LED RGB, con dicho
+ LED se mostrará de color rojo cuando se sobrepasa una temperatura umbral,
+ en este caso 27 grados; dicho LED se mostrará de color azul al bajar de
+ 23.5 grados.
+ Para crear un efecto de transición se han usado los pins 
+\series bold
+PWM
+\series default
+ del arduino para poder controlar la intensidad del LED, se ha usado la
+ función 
+\series bold
+map
+\series default
+ para hacer que de 25 a 27 grados el LED rojo se encienda progressivamente,
+ alcanzando el máximo a los 27 grados, se ha echo lo mismo para el LED azul,
+ haciendo que al bajar de 25 grados progressivamente se va aumentando el
+ brillo del LED azul, alcanzando el máximo a los 23.5 grados.
+ Las conexiones necessarias que hay que realizar son las siguientes:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Amb_arduino_ampliacio_bb.png
+	width 13cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+El código necessario para dicha aplicación es el siguiente:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{ampliacio.ino}
 \end_layout
 
 \end_inset
