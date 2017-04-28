@@ -3,6 +3,33 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\usepackage{courier}
+\usepackage{verbatim}
+\definecolor{mygreen}{RGB}{66,152,33} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\definecolor{myblue}{RGB}{31,1,255}
+\lstset{
+%flexiblecolumns=true,
+    language=Matlab,
+    basicstyle=\small\ttfamily,
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{black},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{myblue}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},   
+}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -25,9 +52,10 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -51,6 +79,10 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -82,7 +114,7 @@ Práctica 1.
 \end_layout
 
 \begin_layout Right Address
-22053–Avionica
+220053–Avionica
 \end_layout
 
 \begin_layout Section
@@ -171,7 +203,7 @@ status open
 
 \begin_layout Plain Layout
 
-$T_{amb}
+$T_{amb}$
 \end_layout
 
 \end_inset
@@ -205,6 +237,396 @@ Montar correctamente en la protoboard el conjunto sensor-acondicionador
 \end_layout
 
 \begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Programar en el arduino una adquisición continua de datos procedentes del
+ acondicionador usando la función analogRead.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{exercici22.ino}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+El código usado contiene en primer lugar una declaración de las variables
+ globales que van a ser usadas por el programa, dichas variables son el
+ pin que usaremos para el 
+\series bold
+analogRead
+\series default
+, el 
+\series bold
+analog_data
+\series default
+ que será la variable en la que guardaremos el valor leído por el 
+\series bold
+analogRead 
+\series default
+y finalmente
+\series bold
+ temp
+\series default
+, la variable en la que se almacenara la conversion del 
+\series bold
+analog_data
+\series default
+ para mostrar grados centigrados.
+ En el 
+\series bold
+setup
+\series default
+ simplemente si ha iniciado el 
+\series bold
+serial port
+\series default
+ para poder ver que valores de temperatura está leyendo del 
+\series bold
+analogRead
+\series default
+.
+ Dentro del 
+\series bold
+loop
+\series default
+ del programa se realiza lo antes descrito, primero se obtiene el valor
+ leído por el 
+\series bold
+ADC
+\series default
+ (analog to digital converter), se opera dicho valor para tenerlo en grados
+ centigrados y finalmente se muestra por el 
+\series bold
+serial port
+\series default
+.
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Anotar los valores enteros obtenidos de la función analogRead a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$T_{amb}$
+\end_layout
+
+\end_inset
+
+ y a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$T_{max}$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Para realizar este apartado se ha modificado la línea 12 del código por
+ esta:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+
+\family typewriter
+Serial.println(analog_data);
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+De esta forma se ha obtenido el valor que nos piden en este apartado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+analogRead\,a\,T_{amb}=\\
+analogRead\,a\,T_{max}=
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+¿Son correctos estos valores? Razonar la respuesta.
+\end_layout
+
+\begin_layout Subsection
+Ampliar el programa para visualizar los valores correctos de Tamb y Tmax.
+\end_layout
+
+\begin_layout Standard
+El anterior código mostrado ya tenía la implementación que nos piden en
+ este apartado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+T_{amb}=\\
+T_{max}=
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Temporización de la visualización
+\end_layout
+
+\begin_layout Standard
+En este apartado se trata de reajustar el programa para que actualice la
+ temperatura cada 0,5 segundos, en lugar de estar actualizando continuamente.
+ 
+\end_layout
+
+\begin_layout Subsection
+Utilizar la función delay del arduino para que la temperatura se actualice
+ cada 0,5 s.
+\end_layout
+
+\begin_layout Standard
+Para implementar lo que se nos pide simplemente hay que añadir una linea
+ de código, resultando en:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{exercici33.ino}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+A la función 
+\series bold
+delay
+\series default
+ hay que decirle en milisegundos el tiempo de espera que se quiere, por
+ esto se le ha puesto 500 de valor.
+\end_layout
+
+\begin_layout Section
+
+\lang spanish
+Alarmas de temperatura
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En este último apartado se modificará el programa para que se encienda un
+ led cuando se alcance las temperaturas extremas 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$T_{amb}$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$T_{max}$
+\end_layout
+
+\end_inset
+
+.
+ Se debe visualizar claramente como se enciende al alcanzar estas temperaturas
+ y como se apaga al salir de ellas (tener en cuenta que el paso de temperatura
+ ambiente hasta la máxima, apretando el sensor, y viceversa, no es inmediato,
+ por lo que debe ser posible ver el transitorio).
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Buscar información para averiguar con cuál de los pines digitales del arduino
+ UNO se puede encender el led L que hay en la placa arduino.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+De la documentación oficial disponible en 
+\shape italic
+www.arduino.cc 
+\shape default
+se ha obtenido que el pin para controlar el LED de la placa es:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+Pin=13
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Programar el arduino para encender el led L cuando la temperatura es mayor
+ o igual que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$T_{max}$
+\end_layout
+
+\end_inset
+
+ y cuando la temperatura es menor o igual que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$T_{amb}$
+\end_layout
+
+\end_inset
+
+.
+ Dejar un margen adecuado tanto en el máximo como en el mínimo para que
+ se pueda apreciar con claridad el encendido y el apagado.
+ Para este programa se deben usar las funciones pinMode y digitalWrite.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{sketch_apr27a.ino}
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
