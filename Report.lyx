@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass article
 \begin_preamble
 \usepackage{listings}
@@ -32,20 +34,20 @@
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
-\language english
+\language spanish-mexico
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -87,7 +89,7 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\quotes_language french
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -123,8 +125,11 @@ Sensor y acondicionador
 
 \begin_layout Standard
 En el primer apartado de la práctica se medirá los valores suministrados
- por el LM35 y se montará y ajustará el acondicionador de señal en una protoboar
-d.
+ por el LM35 y se 
+\lang spanish
+montará
+\lang spanish-mexico
+ y ajustará el acondicionador de señal en una protoboard.
  
 \end_layout
 
@@ -140,7 +145,15 @@ $T_{amb}$
 
 \end_inset
 
-) y la temperatura apretando el sensor con los dedos (
+) y la 
+\lang bulgarian
+temperatura
+\lang spanish-mexico
+ apretando el sensor con 
+\lang catalan
+los
+\lang spanish-mexico
+ dedos (
 \begin_inset ERT
 status open
 
@@ -151,8 +164,16 @@ $T_{max}$
 
 \end_inset
 
-) conectando la salida del LM35 directamente a un multímetro y aplicando
- la expresión de la sensibilidad dada en las características del LM35 
+) 
+\lang spanish
+conectando
+\lang spanish-mexico
+ la salida del LM35 directamente a un 
+\lang spanish
+multímetro
+\lang spanish-mexico
+ y aplicando la expresión de la sensibilidad dada en las características
+ del LM35 
 \end_layout
 
 \begin_layout Standard
@@ -186,12 +207,18 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Sense_arduino_bb.png
-	width 15cm
+	width 12cm
 
 \end_inset
 
@@ -247,7 +274,7 @@ Hay que destacar que en el divisor de tensión se conseguían solamente 2.1V,
 \end_layout
 
 \begin_layout Section
-Adquisición de datos con arduino
+Adquisición de datos con Arduino
 \end_layout
 
 \begin_layout Standard
@@ -257,7 +284,7 @@ En este apartado se montará el sistema completo en una protoboard y se hará
 
 \begin_layout Subsection
 Montar correctamente en la protoboard el conjunto sensor-acondicionador
- conectado al microcontrolador arduino UNO.
+ conectado al microcontrolador Arduino UNO.
 \end_layout
 
 \begin_layout Standard
@@ -273,6 +300,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Plain Layout
@@ -291,7 +323,7 @@ status collapsed
 \end_layout
 
 \begin_layout Subsection
-Programar en el arduino una adquisición continua de datos procedentes del
+Programar en el Arduino una adquisición continua de datos procedentes del
  acondicionador usando la función analogRead.
 \end_layout
 
@@ -334,16 +366,16 @@ y finalmente
 \series bold
  temp
 \series default
-, la variable en la que se almacenara la conversion del 
+, la variable en la que se almacenara la conversión del 
 \series bold
 analog_data
 \series default
- para mostrar grados centigrados.
+ para mostrar grados centígrados.
  En el 
 \series bold
 setup
 \series default
- simplemente si ha iniciado el 
+ simplemente se ha iniciado el 
 \series bold
 serial port
 \series default
@@ -362,7 +394,7 @@ loop
 ADC
 \series default
  (analog to digital converter), se opera dicho valor para tenerlo en grados
- centigrados y finalmente se muestra por el 
+ centígrados y finalmente se muestra por el 
 \series bold
 serial port
 \series default
@@ -418,6 +450,11 @@ width "100col%"
 special "none"
 height "1in"
 height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status collapsed
 
 \begin_layout Plain Layout
@@ -456,18 +493,14 @@ De esta forma se ha obtenido el valor que nos piden en este apartado.
 \begin_inset Formula 
 \[
 \begin{cases}
-analogRead\,a\,T_{amb}=\\
-analogRead\,a\,T_{max}=
+analogRead\,a\,T_{amb}= & 430\\
+analogRead\,a\,T_{max}= & 800
 \end{cases}
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-¿Son correctos estos valores? Razonar la respuesta.
 \end_layout
 
 \begin_layout Subsection
@@ -483,8 +516,8 @@ El anterior código mostrado ya tenía la implementación que nos piden en
 \begin_inset Formula 
 \[
 \begin{cases}
-T_{amb}=\\
-T_{max}=
+T_{amb}= & 22.6\,^{o}C\\
+T_{max}= & 27.48\,^{o}C
 \end{cases}
 \]
 
@@ -499,13 +532,13 @@ Temporización de la visualización
 
 \begin_layout Standard
 En este apartado se trata de reajustar el programa para que actualice la
- temperatura cada 0,5 segundos, en lugar de estar actualizando continuamente.
+ temperatura cada 0.5 segundos, en lugar de estar actualizando continuamente.
  
 \end_layout
 
 \begin_layout Subsection
-Utilizar la función delay del arduino para que la temperatura se actualice
- cada 0,5 s.
+Utilizar la función delay del Arduino para que la temperatura se actualice
+ cada 0.5 s.
 \end_layout
 
 \begin_layout Standard
@@ -584,8 +617,8 @@ $T_{max}$
 \begin_layout Subsection
 
 \lang spanish
-Buscar información para averiguar con cuál de los pines digitales del arduino
- UNO se puede encender el led L que hay en la placa arduino.
+Buscar información para averiguar con cuál de los pines digitales del Arduino
+ UNO se puede encender el led L que hay en la placa Arduino.
 \end_layout
 
 \begin_layout Standard
@@ -593,7 +626,7 @@ Buscar información para averiguar con cuál de los pines digitales del arduino
 \lang spanish
 De la documentación oficial disponible en 
 \shape italic
-www.arduino.cc 
+www.Arduino.cc 
 \shape default
 se ha obtenido que el pin para controlar el LED de la placa es:
 \end_layout
@@ -614,7 +647,7 @@ Pin=13
 \begin_layout Subsection
 
 \lang spanish
-Programar el arduino para encender el led L cuando la temperatura es mayor
+Programar el Arduino para encender el led L cuando la temperatura es mayor
  o igual que 
 \begin_inset ERT
 status open
@@ -665,7 +698,7 @@ lstinputlisting{sketch_apr27a.ino}
 
 \lang spanish
 Para realizar este apartado se ha procedido igual que en los anteriores
- para calcular la temperatura detecada por el sensor.
+ para calcular la temperatura detectada por el sensor.
  Para el accionado del control del LED se ha usado una combinación de 
 \series bold
 if
@@ -682,7 +715,7 @@ else
  por debajo de cierta temperatura se encienda el led, y que cuando esta
  en el medio se apague.
  Para calibrar dicha función se han usado los valores de 23.5 i 27 grados
- centigrados de acuerdo con la temperatura existente al laboratorio en el
+ centígrados de acuerdo con la temperatura existente al laboratorio en el
  momento de la realización de la práctica.
 \end_layout
 
@@ -690,6 +723,95 @@ else
 
 \lang spanish
 Ampliación
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Para la ampliación de la práctica se propone el uso de un LED RGB, con dicho
+ LED se mostrará de color rojo cuando se sobrepasa una temperatura umbral,
+ en este caso 27 grados; dicho LED se mostrará de color azul al bajar de
+ 23.5 grados.
+ Para crear un efecto de transición se han usado los pins 
+\series bold
+PWM
+\series default
+ del Arduino para poder controlar la intensidad del LED, se ha usado la
+ función 
+\series bold
+map
+\series default
+ para hacer que de 25 a 27 grados el LED rojo se encienda progresivamente,
+ alcanzando el máximo a los 27 grados, se ha echo lo mismo para el LED azul,
+ haciendo que al bajar de 25 grados progresivamente se va aumentando el
+ brillo del LED azul, alcanzando el máximo a los 23.5 grados.
+ Las conexiones necesarias que hay que realizar son las siguientes:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Amb_arduino_ampliacio_bb.png
+	height 10cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+El código necesario para dicha aplicación es el siguiente:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{ampliacio.ino}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
