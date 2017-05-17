@@ -503,6 +503,106 @@ analogRead\,a\,T_{max}= & 800
 
 \end_layout
 
+\begin_layout Standard
+Podemos considerar estos valores como correctos ya que si hacemos el factor
+ de conversión del voltaje a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$T_{amb}$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$T_{max}$
+\end_layout
+
+\end_inset
+
+ a la lectura del 
+\series bold
+AnalogInput
+\series default
+, sabemos que el voltaje máximo es de
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ $5
+\backslash
+,V$
+\end_layout
+
+\end_inset
+
+ que corresponden a la lectura de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$1023$
+\end_layout
+
+\end_inset
+
+ del Arduino, por lo tanto, al voltaje de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$T_{max}$
+\end_layout
+
+\end_inset
+
+ de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$4
+\backslash
+,V$
+\end_layout
+
+\end_inset
+
+ obtenemos una lectura de 
+\begin_inset Formula $4\text{·}1023/5=818.4$
+\end_inset
+
+ y al voltaje de Tamb de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$2.1
+\backslash
+,V$
+\end_layout
+
+\end_inset
+
+ obtenemos una lectura de 
+\begin_inset Formula $2.1\text{·}1023/5=429.66$
+\end_inset
+
+, que son prácticamente iguales a los obtenidos experimentalmente.
+\end_layout
+
 \begin_layout Subsection
 Ampliar el programa para visualizar los valores correctos de Tamb y Tmax.
 \end_layout

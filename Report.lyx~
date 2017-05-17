@@ -215,9 +215,10 @@ backgroundcolor "none"
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Sense_arduino_bb.png
-	width 15cm
+	width 12cm
 
 \end_inset
 
@@ -374,7 +375,7 @@ analog_data
 \series bold
 setup
 \series default
- simplemente si ha iniciado el 
+ simplemente se ha iniciado el 
 \series bold
 serial port
 \series default
@@ -502,10 +503,6 @@ analogRead\,a\,T_{max}= & 800
 
 \end_layout
 
-\begin_layout Standard
-¿Son correctos estos valores? Razonar la respuesta.
-\end_layout
-
 \begin_layout Subsection
 Ampliar el programa para visualizar los valores correctos de Tamb y Tmax.
 \end_layout
@@ -535,13 +532,13 @@ Temporización de la visualización
 
 \begin_layout Standard
 En este apartado se trata de reajustar el programa para que actualice la
- temperatura cada 0,5 segundos, en lugar de estar actualizando continuamente.
+ temperatura cada 0.5 segundos, en lugar de estar actualizando continuamente.
  
 \end_layout
 
 \begin_layout Subsection
 Utilizar la función delay del Arduino para que la temperatura se actualice
- cada 0,5 s.
+ cada 0.5 s.
 \end_layout
 
 \begin_layout Standard
@@ -775,12 +772,13 @@ separation "3pt"
 shadowsize "4pt"
 framecolor "black"
 backgroundcolor "none"
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Amb_arduino_ampliacio_bb.png
-	width 13cm
+	height 10cm
 
 \end_inset
 
